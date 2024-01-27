@@ -1,0 +1,77 @@
+MainWidget:
+
+<DragButton>:
+    drag_rectangle: self.x, self.y, self.width, self.height
+    drag_timeout: 10000000
+    drag_distance: 0
+
+<MainWidget>:
+    GridLayout:
+        cols: 1
+        rows: 3
+        BoxLayout:
+            size_hint: 1,0.2
+            Label:
+                size_hint: 1,1
+                text: ""
+        RelativeLayout:
+            size_hint: 1,2
+            id: middle_table_id
+            
+            canvas.before:
+                Color:
+                    rgba: 0, 0.3, 0, 0.5
+                Rectangle:
+                    size: self.size
+            Label:
+                size_hint: 1,1
+        BoxLayout:
+            size_hint: 1,0.5
+            Button:
+                text: "restart"
+                on_press: root.restart_table()
+            Button:
+                text: "pile"
+                on_press: root.make_pile(self)
+            Button:
+                text: "add_pile"
+                on_press: root.add_pile()
+        DragButton:
+            size_hint: None,None
+            height: "200dp"
+            width: "140dp"
+            id: card_deck_id
+            text: "draw"
+            on_press: root.draw_top_card()
+    
+            FloatLayout:
+       
+                pos: self.parent.pos
+                size_hint: None,None
+                height: "200dp"
+                width: "140dp"
+                CheckBox:
+                    pos_hint: {"x":0.05,"y":0.8}
+                    size_hint: None, None
+                    height: "30dp"
+                    width: "20dp"
+                    text: "hey"
+                    state: root.draw_three
+                    on_active: root.set_draw_three(self)
+                Label:
+                    pos_hint: {"x":0.2,"y":0.8}
+                    size_hint: None,None
+                    height: "30dp"
+                    width: "20dp"
+                    text: "x3"
+                    padding: 15,15
+                Button:
+                    pos_hint: {"x":0.25,"y":0.2}
+                    size_hint: None,None
+                    width: self.parent.width/2
+                    height: "25dp"
+                    text: "Shuffle"
+                    on_press: root.shuffle_cards()
+        FloatLayout:
+            size_hint: 1,1
+            id: pile_float_layer_id

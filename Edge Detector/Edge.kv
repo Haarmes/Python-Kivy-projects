@@ -1,0 +1,138 @@
+MainWidget:
+    
+
+<MainWidget>:
+    GridLayout:
+        cols: 1
+        rows: 1
+        BoxLayout:
+
+            orientation: "vertical"
+            Image:
+                size_hint: 1, 2.5
+                source: root.image_displayed
+            GridLayout:
+                cols: 2
+                rows: 1
+                orientation: "tb-lr"
+                GridLayout:
+                    cols: 7
+                    rows: 3
+                    orientation: "tb-lr"
+                    Label:
+                        text: "blur"
+                        size_hint: 0.2 ,1
+                    
+                    Label:
+                        text: "canny1"
+                        size_hint: 0.2 ,1
+                    
+                    Label:
+                        text: "canny2"
+                        size_hint: 0.2 ,1
+                    Slider:
+                        id: blur
+                        size_hint: 0.5, 1
+                        min:1
+                        max: 30
+                        step: 2
+                        on_value: root.change_blur_value(blur.value)
+                    Slider:
+                        id: canny
+                        size_hint: 0.5, 1
+                        min:0
+                        max: 500
+                        step: 1
+                        on_value: root.change_canny_value((canny.value))
+
+                    Slider:
+                        id: canny2
+                        size_hint: 0.5, 1
+                        min:0
+                        max: 500
+                        step: 1
+                        on_value: root.change_canny2_value(canny2.value)
+
+                    Label:
+                        text: str(blur.value)
+                        size_hint: 0.1 ,1
+                    
+                    Label:
+                        text: str(int(canny.value))
+                        size_hint: 0.1 ,1
+                    
+                    Label:
+                        text: str(int(canny2.value))
+                        size_hint: 0.1 ,1
+                    CheckBox:
+                        on_active: root.change_grayscale(self.active)		
+                        size_hint: 0.1 ,1
+                    CheckBox:
+                        on_active: root.change_canny(self.active)
+                        size_hint: 0.1 ,1
+                    Label:
+                        size_hint: 0.1 ,1
+                    Label:
+                        text: "Gray"
+                        size_hint: 0.1 ,1
+                    
+                    Label:
+                        text: "Canny"
+                        size_hint: 0.1 ,1
+                        
+                        
+                    Button:
+                        on_press: root.get_images()
+                        text: "Load"
+                        size_hint: 0.1 ,1
+                    Label:
+                        size_hint: 0.1 ,1
+                    Button: 
+                        on_press: root.go_fullscreen_image()
+                        text: "Fullscreen"
+                        size_hint: 0.1 ,1
+                    Button: 
+                        on_press: root.text_input_make()
+                        text: "Save"
+                        size_hint: 0.1 ,1
+
+
+                ScrollView:
+                    do_scroll_x: "False"
+                    do_scroll_y: "True"
+                    size_hint: 0.7,1
+                    padding: 10
+
+                    StackLayout:
+                        id: stack_id
+                        padding: 10
+                        spacing: 1
+                        size_hint: 1, None
+                        height: self.minimum_height
+
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,0,1
+                Rectangle:
+                    size: root.black_box_size
+        AnchorLayout:
+            anchor_x: "center"
+            anchor_y: "center"
+            size_hint: None, None
+            id: anchor_id
+            center: self.parent.center
+            pos: self.parent.pos
+        AnchorLayout:
+            anchor_x: "center"
+            anchor_y: "bottom"
+            id: anchor2_id
+
+
+                
+                
+
+
+
+
+            

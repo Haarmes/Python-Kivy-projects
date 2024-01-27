@@ -1,0 +1,151 @@
+MainWidget:
+    
+
+<MainWidget>:
+
+        
+    BoxLayout:
+        font_size: "30dp"
+        orientation: "vertical"
+        spacing: "10dp"
+        Label:
+            text: str(root.current_display)
+            font_size: "40dp"
+        GridLayout:
+            cols: int(3)
+            rows: int(4)
+            
+            Button:
+                text: "1"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(1))
+            Button:
+                text: "2"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(2))
+            Button:
+                text: "3"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(3))
+            Button:
+                text: "4"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(4))
+            Button:
+                text: "5"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(5))
+            Button:
+                text: "6"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(6))
+            Button:
+                text: "7"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(7))
+            Button:
+                text: "8"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(8))
+            Button:
+                text: "9"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(9))
+            Button:
+                text: "+"
+                font_size: "30dp"
+                on_press: root.operand_push("+")
+            Button:
+                text: "0"
+                background_color:(0.32, 0.80, 0.99)
+                font_size: "20dp"
+                on_press: root.number_push(int(0))
+            Button:
+                font_size: "30dp"
+                text: "="
+                on_press: root.calculate()
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+
+        Label:
+            
+            text: ""
+            size_hint: 1,0.2
+            font_size: "30dp"
+        Label:
+            text: ""
+            size_hint: 1,0.2
+            font_size: "30dp"
+        Label:
+            text: ""
+            size_hint: 1,0.2
+            margin: "10dp"
+            font_size: "30dp"
+        Label:
+            text: root.calculation_result
+            font_size: "40dp"
+
+        GridLayout:
+        
+            cols: int(4)
+            rows: int(4)
+            spacing: "2dp"
+            margin: "6dp"
+            Button:
+                text: "Reset"
+                background_color:(0.82, 0.50, 0.50)
+                height: "20dp"
+                size_hint: 1, 1
+                pos_hint: {}
+                on_press: root.reset_calculator()
+            Button:
+                text: "-"
+                font_size: "20dp"
+                on_press: root.operand_push("-")
+            Button:
+                text: "*"
+                font_size: "20dp"
+                on_press: root.operand_push("*")
+            Button:
+                text: "/"
+                font_size: "20dp"
+                on_press: root.operand_push("/")
+            Button:
+                text: "Backspace"
+                on_press: root.backspace()
+            Button:
+                text: "("
+                font_size: "20dp"
+                on_press: root.operand_push("(")
+            Button:
+                text: ")"
+                font_size: "20dp"
+                on_press: root.operand_push(")")
+            Button:
+                text: "π"
+                on_press: root.operand_push("π")
+            Button:
+                text: ""
+                on_press: root.number_push(int(9))
+            Button:
+                text: "."
+                font_size: "20dp"
+                on_press: root.operand_push(".")
+            Button:
+                text: "^"
+                font_size: "20dp"
+                on_press: root.operand_push("**")
+            Button:
+                text: "√"
+                font_size: "20dp"
+                on_press: root.operand_push("square root")
